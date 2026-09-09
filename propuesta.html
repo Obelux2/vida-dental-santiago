@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta — Vida Dental Santiago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --marino: #0F2438;
+    --marino-medio: #1B3A5C;
+    --turquesa: #1E9E9E;
+    --turquesa-claro: #2AAFB0;
+    --rojo-urgencia: #D0342C;
+    --gris: #9099A1;
+    --hueso: #F4F7F9;
+    --blanco: #FFFFFF;
+    --borde: #E1E7EC;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+    color: var(--marino);
+    background: var(--hueso);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.portada {
+    background: linear-gradient(160deg, var(--marino) 0%, var(--marino-medio) 100%);
+    color: var(--blanco);
+    padding: 64px 0 48px;
+  }
+
+  header.portada .wrap { display: flex; flex-direction: column; gap: 18px; }
+
+  .etiqueta {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(30, 158, 158, 0.18);
+    border: 1px solid var(--turquesa-claro);
+    color: var(--turquesa-claro);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  header.portada h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  header.portada .meta {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  main { padding: 48px 0 24px; }
+
+  .lead {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--marino);
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--turquesa);
+    border-radius: 16px;
+    padding: 28px 28px;
+    margin: 0 0 40px;
+  }
+
+  .lead strong { color: var(--marino); }
+
+  .cta-demo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--turquesa);
+    color: var(--blanco);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 999px;
+    margin: 20px 0 8px;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .cta-demo:hover { background: var(--turquesa-claro); transform: translateY(-1px); }
+
+  section { margin: 56px 0; }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--marino);
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--borde);
+  }
+
+  h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--marino);
+    color: var(--blanco);
+    border-radius: 8px;
+    font-size: 15px;
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--marino-medio);
+    margin: 28px 0 10px;
+  }
+
+  p { margin: 0 0 16px; color: var(--marino); }
+
+  ul, ol { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 10px; }
+
+  strong { color: var(--marino); }
+
+  .card {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 18px 0;
+  }
+
+  .card-lista {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 8px 28px 8px;
+  }
+
+  .demo-box {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 24px 28px;
+    text-align: center;
+  }
+
+  .conversacion {
+    background: var(--marino);
+    color: var(--hueso);
+    border-radius: 16px;
+    padding: 28px;
+    font-size: 15px;
+    overflow-x: auto;
+  }
+
+  .conversacion .linea { margin-bottom: 18px; }
+  .conversacion .linea:last-child { margin-bottom: 0; }
+  .conversacion .quien {
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .conversacion .paciente .quien { color: var(--gris); }
+  .conversacion .agente .quien { color: var(--turquesa-claro); }
+  .conversacion .texto { margin: 0; color: var(--blanco); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+  }
+
+  th, td {
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--borde);
+    font-size: 15px;
+  }
+
+  th {
+    background: var(--marino);
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  .pordefinir {
+    display: inline-block;
+    background: rgba(208, 52, 44, 0.08);
+    color: var(--rojo-urgencia);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .nota-legal {
+    background: var(--hueso);
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--marino-medio);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 14.5px;
+    color: var(--marino-medio);
+  }
+
+  .fases {
+    display: grid;
+    gap: 16px;
+  }
+
+  .fase {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .fase .num-fase {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--turquesa);
+    color: var(--blanco);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fase h4 { margin: 0 0 6px; font-size: 16px; color: var(--marino); }
+  .fase p { margin: 0; font-size: 14.5px; }
+
+  .preguntas {
+    background: var(--marino);
+    color: var(--hueso);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .preguntas ol { padding-left: 20px; margin: 0; }
+  .preguntas li { color: rgba(255,255,255,0.9); margin-bottom: 12px; }
+  .preguntas li:last-child { margin-bottom: 0; }
+
+  footer {
+    border-top: 1px solid var(--borde);
+    margin-top: 64px;
+    padding: 32px 0 56px;
+    text-align: center;
+  }
+
+  footer .firma {
+    font-weight: 800;
+    color: var(--marino);
+    font-size: 15px;
+  }
+
+  footer .contacto {
+    color: var(--turquesa);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  code {
+    background: var(--hueso);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    header.portada { padding: 48px 0 36px; }
+    main { padding: 36px 0 16px; }
+    section { margin: 40px 0; }
+    .lead, .card, .demo-box { padding: 20px; }
+    table, th, td { font-size: 13.5px; }
+    th, td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="portada">
+  <div class="wrap">
+    <span class="etiqueta">Propuesta comercial</span>
+    <h1>Vida Dental Santiago</h1>
+    <p class="meta">Av. Vicuña Mackenna Poniente 7255, piso 9, oficina 913, La Florida · Septiembre 2026<br>Preparado por La Cueva del Oso</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="lead">
+    Busquen "dentista La Florida" desde el celular de un vecino. Lo que va a aparecer son otras
+    clínicas, con sitio propio, mientras la suya &mdash;con <strong>4,8&nbsp;★ y 221 opiniones en
+    Google</strong>, con <strong>1.318 seguidores en Instagram</strong>&mdash; no tiene dónde aterrizar
+    a nadie. Ese paciente que compara tres opciones en dos minutos antes de decidir dónde ir con dolor
+    de muelas termina en la clínica que sí aparece, no en la que tiene mejor calificación.
+    <br><br>
+    No nos contrataron para esto. Encontramos la clínica buscando dentistas en La Florida, vimos el
+    puntaje, vimos que no había sitio web, y decidimos tocar la puerta. Esta propuesta trae ya un
+    <strong>demo construido con los datos reales de la clínica</strong> &mdash;no una maqueta
+    genérica&mdash; para que puedan ver el resultado antes de decidir si conversamos.
+  </p>
+
+  <div class="demo-box">
+    <p style="margin-bottom:4px; font-weight:600;">El demo ya está construido con sus datos, colores y tipografía reales.</p>
+    <a class="cta-demo" href="index.html">Ver el sitio &rarr;</a>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span>Diagnóstico: lo que ya tienen y no está funcionando a favor</h2>
+    <div class="card-lista">
+      <ul>
+        <li><strong>Sin sitio web.</strong> Toda la conversión hoy depende de que alguien escriba al WhatsApp o encuentre el Instagram. No hay ningún lugar propio donde un paciente nuevo pueda llegar desde Google.</li>
+        <li><strong>La ficha de Facebook tiene la dirección equivocada</strong> (dice "San Antonio 121", cuando la clínica está en Av. Vicuña Mackenna Poniente 7255). No es solo un dato mal escrito: Google usa la consistencia de nombre, dirección y teléfono entre todas las fuentes donde aparece un negocio para decidir qué tan confiable es, y por lo tanto qué tan arriba lo muestra en búsquedas locales. Esa contradicción resta posiciones que hoy se están regalando.</li>
+        <li><strong>Facebook prácticamente abandonado</strong>: 67 seguidores, contra 1.318 en Instagram. Es una puerta abierta que nadie atiende.</li>
+        <li><strong>Hay un perfil de la clínica en AgendaPro que muestra "Cerrado" los siete días de la semana.</strong> Quien llegue ahí buscando una hora ve una clínica cerrada, aunque atiendan todos los días. El título de esa página además ubica la clínica en <strong>San Joaquín</strong>, cuando la dirección es de La Florida, y el código postal tampoco coincide con el de Google. Eso es especialmente caro: "La Florida" es justamente la palabra que la gente escribe cuando busca dentista cerca de su casa. No sabemos si ese perfil lo administra la clínica o si AgendaPro lo generó por su cuenta; en cualquiera de los dos casos, hoy está trabajando en contra.</li>
+        <li><strong>Sumando todo, la clínica aparece en cuatro lugares distintos con datos que se contradicen</strong>: Google, Facebook, Instagram y AgendaPro. Esa es exactamente la señal que hace que un buscador desconfíe de un negocio y lo muestre más abajo.</li>
+        <li><strong>221 opiniones con 4,8 estrellas que viven solo dentro de Google.</strong> Es el activo más fuerte que tiene la clínica hoy, y no hay ninguna página propia que las muestre, las respalde o las use para convencer a alguien que todavía no conoce la clínica.</li>
+        <li><strong>Ofrecen urgencia dental 24/7, pero el WhatsApp lo contesta una persona.</strong> Acá está el hueco más caro de todos. La clínica promete atención a cualquier hora y esa promesa es real, pero quien escribe con dolor a las tres de la mañana no recibe respuesta hasta que alguien despierte y lea el celular. La urgencia está disponible; lo que no está disponible es la puerta de entrada.</li>
+        <li><strong>Atienden en un noveno piso con vista a Santiago</strong>, un detalle que se ve en las fotos que publican pero que hoy no comunican en ninguna parte como lo que es: un diferenciador real frente a una consulta dental común.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Servicio 1 &mdash; Sitio web</h2>
+    <p>Un sitio propio, pensado para que un paciente que llega desde Google agende en menos de un minuto, no para que "se vea bonito y quede ahí".</p>
+
+    <h3>Qué incluye</h3>
+    <div class="card-lista">
+      <ul>
+        <li><strong>Página principal de conversión</strong>, construida sobre lo que la clínica ya tiene: el 4,8 con las 221 opiniones en un lugar destacado, la atención de lunes a domingo, los más de 10 años de experiencia de los doctores, que hacen radiografías en el mismo lugar, y la autorización de la Seremi de Salud. Todo dato real, verificado en Instagram, Facebook y Google &mdash;nada inventado.</li>
+        <li><strong>Una página por tratamiento</strong> (urgencia dental, endodoncia, odontopediatría, carillas, cirugía, prótesis, tapaduras, limpieza y mantención post-ortodoncia). Cada página responde a una búsqueda específica que alguien hace en Google, como "urgencia dental La Florida" o "endodoncia La Florida". Hoy esas búsquedas no tienen dónde caer. El demo ya incluye la página de urgencia dental como ejemplo de cómo funciona en las demás.</li>
+        <li><strong>Agendamiento directo por WhatsApp</strong>: un formulario simple &mdash;nombre, tratamiento y horario preferido&mdash; que arma automáticamente un mensaje y lo manda al WhatsApp de la clínica, para que quien atiende hoy no tenga que cambiar cómo trabaja, solo reciba mensajes mejor ordenados.</li>
+        <li><strong>Ficha de Google conectada</strong>: mapa, dirección correcta y enlace directo a las reseñas, para cerrar la inconsistencia que hoy existe entre Facebook y Google Maps.</li>
+        <li><strong>Rápido y pensado primero para el celular.</strong> La mayoría de las búsquedas de "dentista cerca de mí" se hacen desde el teléfono, no desde un computador, y el sitio está construido para que ahí se vea y funcione bien, no como algo adaptado después.</li>
+      </ul>
+    </div>
+    <p>El demo que acompaña esta propuesta ya está construido con los datos, colores y tipografía reales de Vida Dental Santiago. Pueden abrirlo y navegarlo como si fuera el sitio final.</p>
+    <div class="demo-box">
+      <a class="cta-demo" href="index.html">Ver el sitio &rarr;</a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>Servicio 2 &mdash; Agente de WhatsApp con CRM</h2>
+    <p>Este servicio no tiene demo porque funciona sobre conversaciones reales de pacientes: no es algo que se pueda mostrar como maqueta sin datos de por medio. Por eso lo explicamos en detalle acá.</p>
+
+    <h3>Qué hace</h3>
+    <p>Un agente que responde el WhatsApp de la clínica las 24 horas, todos los días de la semana. No reemplaza a nadie del equipo: filtra y ordena antes de que una persona tenga que intervenir.</p>
+    <div class="card-lista">
+      <ul>
+        <li><strong>Distingue una urgencia real de una consulta general.</strong> Dolor agudo, diente fracturado o una corona caída no esperan hasta el día siguiente; una consulta por un tratamiento sí puede esperar la respuesta de alguien del equipo.</li>
+        <li><strong>Toma los datos del paciente</strong>: nombre, motivo de consulta, tratamiento de interés.</li>
+        <li><strong>Agenda directamente</strong> cuando hay disponibilidad clara, o deja la hora propuesta para que alguien del equipo la confirme.</li>
+        <li><strong>Escala a una persona</strong> apenas la conversación lo requiere: una pregunta clínica específica, un reclamo, o cualquier caso que el agente no pueda resolver con seguridad. El agente nunca reemplaza el criterio profesional de un dentista.</li>
+      </ul>
+    </div>
+
+    <h3>Cómo se ve una conversación</h3>
+    <div class="conversacion">
+      <div class="linea paciente">
+        <span class="quien">Paciente</span>
+        <p class="texto">Hola, tengo un dolor fuerte en una muela desde anoche, no aguanto más</p>
+      </div>
+      <div class="linea agente">
+        <span class="quien">Agente</span>
+        <p class="texto">Hola, lamento que estés con dolor. Para ayudarte rápido, ¿me confirmas tu nombre completo?</p>
+      </div>
+      <div class="linea paciente">
+        <span class="quien">Paciente</span>
+        <p class="texto">Camila Soto</p>
+      </div>
+      <div class="linea agente">
+        <span class="quien">Agente</span>
+        <p class="texto">Gracias, Camila. Este tipo de dolor lo tomamos como urgencia y atendemos todos los días de la semana. ¿Puedes venir hoy mismo? Tenemos disponibilidad en la tarde.</p>
+      </div>
+      <div class="linea paciente">
+        <span class="quien">Paciente</span>
+        <p class="texto">Sí, puedo ir como a las 17:00</p>
+      </div>
+      <div class="linea agente">
+        <span class="quien">Agente</span>
+        <p class="texto">Perfecto, te dejo agendada como urgencia dental para hoy a las 17:00 en Av. Vicuña Mackenna Poniente 7255, piso 9, oficina 913. Una persona del equipo te va a confirmar la hora en los próximos minutos. Si el dolor empeora antes, puedes escribir de nuevo acá.</p>
+      </div>
+    </div>
+    <p style="margin-top:16px;">La conversación queda registrada completa y visible para el equipo, no se pierde ni depende de que alguien la haya leído a tiempo en el celular.</p>
+
+    <h3>El CRM</h3>
+    <p>Un panel de agenda: organiza las horas y los mensajes que hoy viven dispersos en el celular de quien contesta el WhatsApp. <strong>No es una ficha clínica ni un registro de tratamientos</strong> &mdash; la información clínica del paciente sigue donde la llevan hoy.</p>
+    <div class="card-lista">
+      <ul>
+        <li><strong>Historial de conversaciones</strong>, para que cualquier persona del equipo entienda el contexto de un mensaje sin tener que desplazarse por el chat entero.</li>
+        <li><strong>Estado de cada hora agendada</strong>: pendiente de confirmar, confirmada, atendida.</li>
+        <li><strong>Recordatorios automáticos</strong> antes de la hora agendada, para bajar la inasistencia &mdash;hoy uno de los costos más silenciosos de cualquier agenda que depende solo de la memoria del paciente.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p style="margin:0;"><strong>No sabemos si la clínica usa hoy algún sistema para llevar pacientes o agenda.</strong> Si ya tienen uno, se puede evaluar conectar el agente a ese sistema en vez de reemplazarlo; si no tienen ninguno, el CRM que construimos cubre esa función desde cero. Es una de las primeras preguntas que hay que resolver en la reunión.</p>
+    </div>
+
+    <h3>Qué gana la clínica</h3>
+    <p>Que la urgencia 24/7 que ya ofrecen se pueda usar de verdad a las tres de la mañana. Hoy la clínica paga el costo de estar disponible, pero pierde igual al paciente que escribe de madrugada y no recibe respuesta: ese paciente agenda en la primera clínica que sí le contesta. El agente cierra esa brecha sin que nadie del equipo tenga que dormir con el celular al lado.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>Cómo se implementa</h2>
+    <div class="fases">
+      <div class="fase">
+        <div class="num-fase">1</div>
+        <div>
+          <h4>Sitio web</h4>
+          <p><strong>Entregable:</strong> sitio completo publicado, con la página principal y las páginas de tratamiento, ficha de Google conectada y agendamiento por WhatsApp funcionando.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <div class="num-fase">2</div>
+        <div>
+          <h4>Agente de WhatsApp</h4>
+          <p><strong>Entregable:</strong> agente configurado sobre el WhatsApp actual de la clínica, con las reglas de urgencia y escalamiento definidas en conjunto, probado con casos reales antes de activarlo.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <div class="num-fase">3</div>
+        <div>
+          <h4>CRM</h4>
+          <p><strong>Entregable:</strong> panel de agenda con historial de conversaciones, estado de horas agendadas y recordatorios automáticos, integrado con el agente de WhatsApp.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <div class="num-fase">4</div>
+        <div>
+          <h4>Ajuste y entrega</h4>
+          <p><strong>Entregable:</strong> una semana de observación con el equipo usando el sistema completo, ajustes según lo que aparezca en el uso real, y capacitación breve para quien vaya a administrar el panel.</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:18px;">Cada fase se entrega funcionando, no como avance parcial: la clínica puede empezar a usar el sitio web sin esperar a que el agente de WhatsApp esté listo.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span>Lo que necesitamos de ustedes</h2>
+    <p>Esto no está publicado en ninguna de sus redes hoy, y lo necesitamos para completar el sitio y el agente:</p>
+    <div class="card-lista">
+      <ul>
+        <li><strong>Nombres, fotos y especialidades de los profesionales</strong> del equipo (hoy el demo no incluye una sección de equipo porque no tenemos esta información).</li>
+        <li><strong>Horario detallado por día.</strong> Hoy solo sabemos "atención de lunes a domingo", sin horas de apertura y cierre.</li>
+        <li><strong>Fotos del local en buena resolución</strong>, especialmente del box con vista a Santiago &mdash;la que tenemos disponible hoy alcanza para un uso acotado, no para mostrarla a ancho completo.</li>
+        <li><strong>Previsión y convenios que aceptan</strong> (isapres, Fonasa, convenios particulares), si los hay.</li>
+        <li><strong>Consentimiento informado de los pacientes que aparecen en fotos</strong>, antes de usar cualquier imagen donde se les reconozca la cara.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span>Nota legal breve</h2>
+    <div class="nota-legal">
+      <p>Publicar fotos de pacientes que se puedan reconocer está regulado por la <strong>Ley 21.719 de protección de datos personales</strong>, y necesita el consentimiento de cada persona antes de subir la imagen. Es un trámite corto que dejamos resuelto durante la implementación.</p>
+      <p style="margin:0;">Este proyecto <strong>no incluye fichas clínicas ni registro de tratamientos</strong>: el agente y el panel trabajan sobre contacto y agenda, no sobre la historia médica del paciente. Esa información sigue donde la clínica la lleve hoy.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span>Inversión</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Ítem</th><th>Detalle</th><th>Inversión</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sitio web</td>
+            <td>Página principal + páginas por tratamiento + agendamiento WhatsApp</td>
+            <td><span class="pordefinir">POR DEFINIR</span></td>
+          </tr>
+          <tr>
+            <td>Agente de WhatsApp</td>
+            <td>Configuración, reglas de urgencia y escalamiento, pruebas</td>
+            <td><span class="pordefinir">POR DEFINIR</span></td>
+          </tr>
+          <tr>
+            <td>CRM</td>
+            <td>Panel de agenda: historial de conversaciones, estados de hora, recordatorios</td>
+            <td><span class="pordefinir">POR DEFINIR</span></td>
+          </tr>
+          <tr>
+            <td>Mantención mensual</td>
+            <td>Hosting, dominio y soporte</td>
+            <td><span class="pordefinir">POR DEFINIR</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">8</span>Siguiente paso</h2>
+    <p>Una reunión de 30 minutos, presencial o por videollamada, para resolver lo que esta propuesta deja abierto:</p>
+    <div class="preguntas">
+      <ol>
+        <li>¿Usan hoy algún sistema para llevar pacientes o agenda, o partimos desde cero con el CRM? En particular: ¿el perfil de AgendaPro es de ustedes? Si lo es, hay que corregir el horario; si no, conviene reclamarlo antes de que siga mostrando la clínica cerrada.</li>
+        <li>¿Cuál es el horario real de atención, día por día?</li>
+        <li>¿Qué previsión y convenios aceptan hoy?</li>
+        <li>¿Quién del equipo va a administrar el panel del CRM una vez que esté funcionando?</li>
+        <li>Revisar juntos el demo del sitio y ajustar lo que haga falta antes de avanzar.</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="firma">La Cueva del Oso · Francisco Velásquez</p>
+    <a class="contacto" href="mailto:francisco.velasquez@lacuevadeloso.cl">francisco.velasquez@lacuevadeloso.cl</a>
+  </div>
+</footer>
+
+</body>
+</html>
