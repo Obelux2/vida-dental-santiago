@@ -438,6 +438,17 @@
       <p style="margin:0;"><strong>No sabemos si la clínica usa hoy algún sistema para llevar pacientes o agenda.</strong> Si ya tienen uno, se puede evaluar conectar el agente a ese sistema en vez de reemplazarlo; si no tienen ninguno, el CRM que construimos cubre esa función desde cero. Es una de las primeras preguntas que hay que resolver en la reunión.</p>
     </div>
 
+    <h3>Si ya usan AgendaPro</h3>
+    <p>Vimos que existe un perfil de la clínica en AgendaPro, así que puede que ya trabajen con esa agenda. Si es así, <strong>no hay que cambiarla</strong>: AgendaPro tiene una vía oficial para que sistemas externos se conecten, y el agente puede consultar las horas disponibles y dejar la reserva directamente ahí. El equipo sigue trabajando en la misma pantalla de siempre, y las horas que entran por WhatsApp de madrugada aparecen solas a la mañana siguiente.</p>
+    <p>Dos cosas que conviene saber antes:</p>
+    <div class="card-lista">
+      <ul>
+        <li><strong>Esa conexión solo está disponible en el plan Pro de AgendaPro.</strong> Si hoy tienen un plan menor, hay que evaluar si conviene subir de plan o si el agente trabaja por separado y alguien del equipo traspasa las horas. Las dos opciones funcionan; cambian el costo y el trabajo manual.</li>
+        <li><strong>AgendaPro ya ofrece recordatorios por WhatsApp</strong>, y eso es distinto de lo que proponemos. Los recordatorios son mensajes que salen desde el sistema para avisar de una hora ya agendada. Lo nuestro es lo contrario: atender al paciente que escribe él, a cualquier hora, y convertir esa conversación en una hora agendada. Se complementan; no hay que elegir.</li>
+      </ul>
+    </div>
+    <p>Si no usan AgendaPro, todo lo anterior no aplica y el panel propio cubre la función.</p>
+
     <h3>Qué gana la clínica</h3>
     <p>Que la urgencia 24/7 que ya ofrecen se pueda usar de verdad a las tres de la mañana. Hoy la clínica paga el costo de estar disponible, pero pierde igual al paciente que escribe de madrugada y no recibe respuesta: ese paciente agenda en la primera clínica que sí le contesta. El agente cierra esa brecha sin que nadie del equipo tenga que dormir con el celular al lado.</p>
   </section>
@@ -523,6 +534,11 @@
             <td><span class="pordefinir">POR DEFINIR</span></td>
           </tr>
           <tr>
+            <td>Conexión con AgendaPro</td>
+            <td>Solo si la usan y están en plan Pro: las horas entran solas a su agenda</td>
+            <td><span class="pordefinir">POR DEFINIR</span></td>
+          </tr>
+          <tr>
             <td>Mantención mensual</td>
             <td>Hosting, dominio y soporte</td>
             <td><span class="pordefinir">POR DEFINIR</span></td>
@@ -538,6 +554,7 @@
     <div class="preguntas">
       <ol>
         <li>¿Usan hoy algún sistema para llevar pacientes o agenda, o partimos desde cero con el CRM? En particular: ¿el perfil de AgendaPro es de ustedes? Si lo es, hay que corregir el horario; si no, conviene reclamarlo antes de que siga mostrando la clínica cerrada.</li>
+        <li>Si usan AgendaPro: ¿en qué plan están? La conexión con el agente requiere el plan Pro, y de eso depende si las horas entran solas a su agenda o alguien las traspasa a mano.</li>
         <li>¿Cuál es el horario real de atención, día por día?</li>
         <li>¿Qué previsión y convenios aceptan hoy?</li>
         <li>¿Quién del equipo va a administrar el panel del CRM una vez que esté funcionando?</li>
